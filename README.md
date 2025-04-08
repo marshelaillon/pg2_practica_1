@@ -98,3 +98,79 @@ print(calculadora_factorial_2.calcular())
 ```
 El factorial de 6 es: 720
 ```
+
+## 5. Diferencias entre Implementación Procedimental y Orientada a Objetos
+
+### Implementación Procedimental
+La programación procedimental se centra en funciones y procedimientos que operan sobre datos. En nuestro ejemplo, `calculadora_proc.py` muestra este enfoque:
+
+```python
+def sumar(a, b):
+    return a + b
+
+def restar(a, b):
+    return a - b
+```
+
+Características principales:
+- Las funciones son independientes
+- Los datos y las funciones están separados
+- No hay estado interno que se mantenga entre llamadas
+- Es más simple para programas pequeños
+- Menos reutilización de código
+
+### Implementación Orientada a Objetos
+La programación orientada a objetos organiza el código en clases que encapsulan datos y comportamiento. En nuestro ejemplo, `calculadora_poo.py` muestra este enfoque:
+
+```python
+class Calculadora:
+    def __init__(self):
+        self.__resultado = 0
+        self._operacion = ''
+    
+    def sumar(self, a, b):
+        self._operacion = 'Suma'
+        self.__resultado = a + b
+        return self._mostrar_resultado(a, b)
+```
+
+Características principales:
+- Los datos y las funciones están agrupados en clases
+- Mantiene estado interno entre operaciones
+- Permite encapsulamiento de datos
+- Facilita la reutilización de código mediante herencia
+- Mejor organización para programas grandes
+- Más fácil de mantener y extender
+
+### Comparación con el Factorial
+La diferencia es aún más evidente al comparar las implementaciones del factorial:
+
+**Procedimental (`factorial_proc.py`):**
+```python
+n = int(input("Enter a number: "))
+factorial = 1
+for i in range(n):
+    factorial *= (i + 1)
+print(factorial)
+```
+
+**Orientado a Objetos (`factorial_poo.py`):**
+```python
+class CalculadoraFactorial(Calculadora):
+    def __init__(self, numero):
+        super().__init__()
+        self.numero = numero
+        self._operacion = 'factorial'
+        self._Calculadora__resultado = 1
+
+    def calcular(self):
+        for i in range(self.numero):
+            self._Calculadora__resultado = self._multiplicar(self._Calculadora__resultado, i + 1) 
+        return self._mostrar_resultado()
+```
+
+La versión orientada a objetos:
+- Hereda funcionalidad de la clase base `Calculadora`
+- Mantiene el estado interno
+- Encapsula la lógica del cálculo
+- Proporciona una interfaz más clara y reutilizable

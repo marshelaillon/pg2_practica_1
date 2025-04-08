@@ -1,4 +1,4 @@
-from calculadora import Calculadora
+from calculadora_poo import Calculadora
 from factorial_poo import CalculadoraFactorial
 
 calculadora_1 = Calculadora()
